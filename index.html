@@ -3,348 +3,602 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Политика конфиденциальности приложения Flux Save Downloader">
-    <title>Политика конфиденциальности — Flux Save Downloader</title>
+    <meta name="description" content="Flux Save Downloader — Privacy Policy">
+    <title>Flux Save — Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #fafafa;
-            --surface: #ffffff;
-            --text: #1a1a1a;
-            --text-muted: #555555;
             --accent: #6750a4;
-            --border: #e0e0e0;
-            --table-header: #f5f5f5;
+            --accent-light: #d0bcff;
+            --cyan: #22d3ee;
+            --pink: #f472b6;
+            --glass: rgba(255, 255, 255, 0.06);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #f1f5f9;
+            --muted: #94a3b8;
         }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #121212;
-                --surface: #1e1e1e;
-                --text: #e8e8e8;
-                --text-muted: #aaaaaa;
-                --accent: #d0bcff;
-                --border: #333333;
-                --table-header: #2a2a2a;
-            }
-        }
-
-        * {
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            font-size: 16px;
-            line-height: 1.65;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(103, 80, 164, 0.35) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(34, 211, 238, 0.2) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(244, 114, 182, 0.08) 0%, transparent 50%),
+                linear-gradient(160deg, #0a0a0f 0%, #12121a 40%, #0f172a 100%);
             color: var(--text);
-            background: var(--bg);
+            min-height: 100vh;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 760px;
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .orb-1 { width: 400px; height: 400px; background: var(--accent); top: -100px; left: -100px; }
+        .orb-2 { width: 350px; height: 350px; background: var(--cyan); bottom: -80px; right: -80px; }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2rem 1.25rem 4rem;
+            padding: 28px 20px 80px;
         }
 
-        header {
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-        }
-
-        header .container {
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-
-        h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin: 0 0 1rem;
-            line-height: 1.3;
-        }
-
-        .meta {
+        .topbar {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 0.5rem 1.5rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            gap: 16px;
+            margin-bottom: 40px;
         }
 
-        .meta strong {
-            color: var(--text);
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        h2 {
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 8px 32px rgba(103, 80, 164, 0.4);
+        }
+
+        .logo-text {
             font-size: 1.25rem;
-            font-weight: 600;
-            margin: 2.5rem 0 1rem;
-            padding-bottom: 0.4rem;
-            border-bottom: 2px solid var(--accent);
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin: 1.5rem 0 0.75rem;
+        .lang-switch { display: flex; gap: 8px; flex-wrap: wrap; }
+
+        .lang-btn {
+            border: 1px solid var(--border);
+            background: var(--glass);
             color: var(--text);
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            backdrop-filter: blur(10px);
         }
 
-        p {
-            margin: 0 0 1rem;
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--accent);
+            border-color: var(--accent-light);
+            box-shadow: 0 4px 20px rgba(103, 80, 164, 0.35);
         }
 
-        ul {
-            margin: 0 0 1rem;
-            padding-left: 1.5rem;
+        .hero {
+            text-align: center;
+            padding: 20px 0 36px;
         }
 
-        li {
-            margin-bottom: 0.4rem;
+        .badge {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 999px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            color: var(--accent-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            backdrop-filter: blur(12px);
         }
 
-        a {
-            color: var(--accent);
+        .hero h1 {
+            font-size: clamp(1.75rem, 5vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-light) 50%, var(--cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+
+        .meta-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px 18px;
+            backdrop-filter: blur(16px);
+        }
+
+        .meta-card .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        .meta-card .value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            word-break: break-word;
+        }
+
+        .meta-card a {
+            color: var(--cyan);
             text-decoration: none;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .meta-card a:hover { text-decoration: underline; }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 36px;
         }
 
-        hr {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 2rem 0;
+        .chip {
+            padding: 8px 16px;
+            border-radius: 12px;
+            background: rgba(103, 80, 164, 0.15);
+            border: 1px solid rgba(208, 188, 255, 0.2);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-light);
         }
+
+        .section {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 28px 26px;
+            margin-bottom: 18px;
+            backdrop-filter: blur(16px);
+            transition: border-color 0.3s;
+        }
+
+        .section:hover { border-color: rgba(208, 188, 255, 0.25); }
+
+        .section h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            margin: 18px 0 8px;
+        }
+
+        .section p, .section li {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .section ul {
+            padding-left: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .section li { margin-bottom: 6px; }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(103, 80, 164, 0.15), rgba(34, 211, 238, 0.08));
+            border: 1px solid rgba(208, 188, 255, 0.2);
+            border-radius: 16px;
+            padding: 16px 18px;
+            margin: 12px 0;
+        }
+
+        .highlight strong { color: #fff; }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1rem 0 1.5rem;
-            font-size: 0.95rem;
+            margin: 14px 0;
+            font-size: 0.9rem;
         }
 
         th, td {
             border: 1px solid var(--border);
-            padding: 0.65rem 0.85rem;
+            padding: 12px 14px;
             text-align: left;
-            vertical-align: top;
         }
 
         th {
-            background: var(--table-header);
+            background: rgba(103, 80, 164, 0.2);
+            color: var(--accent-light);
             font-weight: 600;
         }
 
+        td { color: #cbd5e1; }
+
+        .platforms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        .platform {
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
         footer {
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.875rem;
-            color: var(--text-muted);
             text-align: center;
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .section { padding: 22px 18px; }
+            .meta-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <h1>Политика конфиденциальности — Flux Save Downloader</h1>
-        <div class="meta">
-            <span><strong>Дата вступления в силу:</strong> 31 мая 2026 г.</span>
-            <span><strong>Разработчик:</strong> abbasxan</span>
-            <span><strong>Контакт:</strong> <a href="mailto:Sultanov.mbk@gmail.com">Sultanov.mbk@gmail.com</a></span>
-            <span><strong>Приложение:</strong> Flux Save Downloader (<code>com.neonxprime.fluxsave</code>)</span>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrap">
+    <div class="topbar">
+        <div class="logo">
+            <div class="logo-icon">⬇</div>
+            <span class="logo-text">Flux Save</span>
+        </div>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLang('ru', this)">RU</button>
+            <button class="lang-btn" onclick="setLang('en', this)">EN</button>
+            <button class="lang-btn" onclick="setLang('az', this)">AZ</button>
         </div>
     </div>
-</header>
 
-<main class="container">
+    <div class="hero">
+        <div class="badge" id="badge"></div>
+        <h1 id="title"></h1>
+        <p id="subtitle"></p>
+    </div>
 
-    <section id="general">
-        <h2>1. Общие положения</h2>
-        <p>Настоящая Политика конфиденциальности описывает, какие данные обрабатывает мобильное приложение <strong>Flux Save Downloader</strong> («Приложение»), в каких целях и какие права есть у пользователя.</p>
-        <p>Используя Приложение, вы соглашаетесь с условиями настоящей Политики. Если вы не согласны с ней, пожалуйста, не используйте Приложение.</p>
-    </section>
+    <div class="meta-grid">
+        <div class="meta-card">
+            <div class="label" id="metaDateLabel"></div>
+            <div class="value" id="metaDate"></div>
+        </div>
+        <div class="meta-card">
+            <div class="label" id="metaDevLabel"></div>
+            <div class="value" id="metaDev"></div>
+        </div>
+        <div class="meta-card">
+            <div class="label" id="metaContactLabel"></div>
+            <div class="value"><a href="mailto:Sultanov.mbk@gmail.com">Sultanov.mbk@gmail.com</a></div>
+        </div>
+        <div class="meta-card">
+            <div class="label" id="metaPkgLabel"></div>
+            <div class="value"><code>com.neonxprime.fluxsave</code></div>
+        </div>
+    </div>
 
-    <section id="about">
-        <h2>2. О приложении</h2>
-        <p>Flux Save Downloader — бесплатный загрузчик медиафайлов с поддерживаемых платформ: <strong>YouTube, TikTok, Instagram, Pinterest и Facebook</strong>. Приложение позволяет сохранять видео и аудио на устройство, управлять загрузками, просматривать историю и воспроизводить скачанные файлы.</p>
-        <p>Приложение <strong>не требует регистрации</strong> и <strong>не создаёт пользовательских аккаунтов</strong>.</p>
-    </section>
+    <div class="chips">
+        <span class="chip" id="chip1"></span>
+        <span class="chip" id="chip2"></span>
+        <span class="chip" id="chip3"></span>
+        <span class="chip" id="chip4"></span>
+    </div>
 
-    <section id="collected">
-        <h2>3. Какие данные мы собираем</h2>
+    <div class="platforms">
+        <span class="platform">YouTube</span>
+        <span class="platform">TikTok</span>
+        <span class="platform">Instagram</span>
+        <span class="platform">Pinterest</span>
+        <span class="platform">Facebook</span>
+    </div>
 
-        <h3>3.1. Данные, которые вы вводите сами</h3>
-        <ul>
-            <li><strong>URL-ссылки</strong> на медиаконтент — для получения информации о файле и его загрузки.</li>
-            <li><strong>Настройки приложения</strong> — язык, тема, папка сохранения, качество по умолчанию, включение автоподстановки из буфера обмена.</li>
-        </ul>
-        <p>Эти данные хранятся <strong>локально на вашем устройстве</strong> (DataStore, база данных Room).</p>
-
-        <h3>3.2. Данные о загрузках (локально)</h3>
-        <p>На устройстве сохраняется:</p>
-        <ul>
-            <li>история загрузок (название, URL, платформа, статус, размер файла, путь к файлу);</li>
-            <li>скачанные медиафайлы в выбранной вами папке.</li>
-        </ul>
-        <p>Эти данные <strong>не передаются разработчику</strong> и остаются только на вашем устройстве, если вы сами не делитесь ими.</p>
-
-        <h3>3.3. Буфер обмена</h3>
-        <p>Если в настройках включена опция <strong>«Автоопределение ссылок из буфера обмена»</strong>, Приложение может читать содержимое буфера обмена <strong>только для обнаружения поддерживаемых URL</strong>. Содержимое буфера <strong>не отправляется на серверы разработчика</strong>. Вы можете отключить эту функцию в любой момент в настройках.</p>
-
-        <h3>3.4. Анонимная аналитика (Firebase)</h3>
-        <p>При успешном завершении загрузки Приложение может отправлять <strong>обезличенные</strong> события через <strong>Google Firebase Analytics</strong>:</p>
-        <ul>
-            <li>платформа (youtube, tiktok, instagram и т.д.);</li>
-            <li>тип медиа (video / audio);</li>
-            <li>размер файла в байтах.</li>
-        </ul>
-        <p>Эти данные <strong>не содержат</strong> вашего имени, email, номера телефона, точного местоположения или содержимого скачанных файлов.</p>
-
-        <h3>3.5. Глобальная статистика (Firebase Firestore)</h3>
-        <p>Для экрана «Глобальная статистика» в Приложении используется <strong>Firebase Firestore</strong>. Передаются только <strong>агрегированные счётчики</strong>:</p>
-        <ul>
-            <li>общее число загрузок;</li>
-            <li>суммарный объём данных;</li>
-            <li>распределение по платформам и типам медиа.</li>
-        </ul>
-        <p>Данные <strong>не привязаны к конкретному пользователю</strong> и не позволяют идентифицировать вас лично.</p>
-
-        <h3>3.6. Защита от злоупотреблений (Firebase App Check)</h3>
-        <p>Приложение использует <strong>Firebase App Check</strong> с <strong>Google Play Integrity</strong> для проверки подлинности клиента и защиты серверных сервисов от автоматизированного злоупотребления.</p>
-    </section>
-
-    <section id="not-collected">
-        <h2>4. Какие данные мы НЕ собираем</h2>
-        <p>Приложение <strong>не собирает</strong>:</p>
-        <ul>
-            <li>имя, фамилию, адрес электронной почты или номер телефона;</li>
-            <li>данные учётных записей социальных сетей или пароли;</li>
-            <li>точную геолокацию;</li>
-            <li>контакты, фотографии или другие файлы, кроме явно указанных вами URL для загрузки;</li>
-            <li>содержимое скачанных медиафайлов.</li>
-        </ul>
-    </section>
-
-    <section id="third-parties">
-        <h2>5. Передача данных третьим лицам</h2>
-
-        <h3>5.1. Сервисы Google (Firebase)</h3>
-        <p>Данные аналитики и агрегированной статистики обрабатываются <strong>Google LLC</strong> в рамках сервисов Firebase. Политика Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></p>
-
-        <h3>5.2. Платформы-источники контента</h3>
-        <p>Когда вы вставляете ссылку, Приложение обращается к соответствующим платформам (YouTube, TikTok, Instagram, Pinterest, Facebook) <strong>от вашего имени</strong> для получения и загрузки медиа. На эти платформы действуют <strong>их собственные</strong> политики конфиденциальности и условия использования.</p>
-
-        <h3>5.3. Open-source компоненты</h3>
-        <p>Приложение использует библиотеки с открытым исходным кодом, включая <strong>yt-dlp</strong> (GPLv3) и <strong>NewPipeExtractor</strong> (GPLv3). Запросы к платформам выполняются через эти инструменты на вашем устройстве.</p>
-    </section>
-
-    <section id="permissions">
-        <h2>6. Разрешения приложения</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Разрешение</th>
-                    <th>Зачем нужно</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Интернет</strong></td>
-                    <td>Загрузка медиа и работа аналитики</td>
-                </tr>
-                <tr>
-                    <td><strong>Уведомления</strong></td>
-                    <td>Статус загрузок и воспроизведение медиа</td>
-                </tr>
-                <tr>
-                    <td><strong>Фоновая служба</strong></td>
-                    <td>Продолжение загрузок и воспроизведение в фоне</td>
-                </tr>
-                <tr>
-                    <td><strong>Хранилище</strong> (Android 9 и ниже)</td>
-                    <td>Сохранение файлов на устройство</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>На Android 10 и выше файлы сохраняются через системный механизм хранилища без постоянного доступа ко всем файлам устройства.</p>
-    </section>
-
-    <section id="retention">
-        <h2>7. Хранение и удаление данных</h2>
-        <ul>
-            <li><strong>Локальные данные</strong> (история, настройки) хранятся на устройстве до их удаления вами через настройки или удаления приложения.</li>
-            <li><strong>Скачанные файлы</strong> остаются на устройстве, пока вы их не удалите.</li>
-            <li><strong>Агрегированная статистика</strong> в Firebase не содержит персональных данных и не может быть удалена для отдельного пользователя, так как не привязана к личности.</li>
-        </ul>
-        <p>Вы можете:</p>
-        <ul>
-            <li>очистить историю загрузок в настройках;</li>
-            <li>удалить скачанные файлы через раздел «Загрузки»;</li>
-            <li>отключить автоподстановку из буфера обмена;</li>
-            <li>удалить приложение — при этом локальные данные приложения будут удалены (файлы, сохранённые в общих папках, могут остаться).</li>
-        </ul>
-    </section>
-
-    <section id="security">
-        <h2>8. Безопасность</h2>
-        <p>Мы применяем разумные технические меры для защиты данных, включая использование Firebase App Check. Однако ни один метод передачи или хранения данных в интернете не является абсолютно безопасным на 100%.</p>
-    </section>
-
-    <section id="children">
-        <h2>9. Дети</h2>
-        <p>Приложение не предназначено для лиц младше 13 лет. Мы сознательно не собираем персональные данные детей. Если вы считаете, что ребёнок передал нам данные, свяжитесь с нами — мы примем меры по их удалению.</p>
-    </section>
-
-    <section id="rights">
-        <h2>10. Ваши права</h2>
-        <p>В зависимости от законодательства вашей страны вы можете иметь право:</p>
-        <ul>
-            <li>получить информацию о том, какие данные обрабатываются;</li>
-            <li>потребовать исправления или удаления данных;</li>
-            <li>отозвать согласие, отключив соответствующие функции или удалив приложение.</li>
-        </ul>
-        <p>Для запросов обращайтесь: <a href="mailto:Sultanov.mbk@gmail.com"><strong>Sultanov.mbk@gmail.com</strong></a></p>
-    </section>
-
-    <section id="responsible-use">
-        <h2>11. Ответственное использование</h2>
-        <p>Flux Save Downloader предназначен для <strong>личного использования</strong>. Пользователь несёт ответственность за соблюдение:</p>
-        <ul>
-            <li>условий использования платформ-источников;</li>
-            <li>авторских прав правообладателей;</li>
-            <li>законодательства своей страны.</li>
-        </ul>
-        <p>Разработчик не поощряет нарушение авторских прав или условий сервисов третьих сторон.</p>
-    </section>
-
-    <section id="changes">
-        <h2>12. Изменения политики</h2>
-        <p>Мы можем обновлять настоящую Политику. Актуальная версия будет доступна по ссылке, указанной в описании приложения. При существенных изменениях дата «вступления в силу» будет обновлена.</p>
-    </section>
-
-    <section id="contacts">
-        <h2>13. Контакты</h2>
-        <p>По вопросам конфиденциальности:</p>
-        <ul>
-            <li><strong>Email:</strong> <a href="mailto:Sultanov.mbk@gmail.com">Sultanov.mbk@gmail.com</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/abbasxan" target="_blank" rel="noopener noreferrer">https://github.com/abbasxan</a></li>
-            <li><strong>Разработчик:</strong> abbasxan</li>
-        </ul>
-    </section>
+    <div id="sections"></div>
 
     <footer>
-        <p>&copy; 2026 abbasxan · Flux Save Downloader</p>
+        <p id="footer1"></p>
+        <p style="margin-top:8px" id="footer2"></p>
     </footer>
+</div>
 
-</main>
+<script>
+const T = {
+ru: {
+    badge: "📄 Официальная политика конфиденциальности",
+    title: "Политика конфиденциальности",
+    subtitle: "Flux Save Downloader — как мы обрабатываем ваши данные",
+    metaDateLabel: "Дата вступления в силу",
+    metaDate: "31 мая 2026 г.",
+    metaDevLabel: "Разработчик",
+    metaDev: "abbasxan",
+    metaContactLabel: "Контакт",
+    metaPkgLabel: "Пакет приложения",
+    chip1: "🔒 Без регистрации",
+    chip2: "📱 Данные на устройстве",
+    chip3: "📊 Анонимная аналитика",
+    chip4: "🚫 Без продажи данных",
+    footer1: "Flux Save Downloader — бесплатный загрузчик медиа для Android",
+    footer2: "© 2026 abbasxan · <a href='https://github.com/abbasxan'>GitHub</a>",
+    sections: [
+        { n: 1, t: "Общие положения", html: `<p>Настоящая Политика описывает, какие данные обрабатывает приложение <strong>Flux Save Downloader</strong>, в каких целях и какие права есть у пользователя.</p><p>Используя приложение, вы соглашаетесь с условиями Политики. Если вы не согласны — пожалуйста, не используйте приложение.</p>` },
+        { n: 2, t: "О приложении", html: `<p>Flux Save Downloader — бесплатный загрузчик медиа с YouTube, TikTok, Instagram, Pinterest и Facebook. Сохраняйте видео и аудио, управляйте загрузками и воспроизводите файлы.</p><div class="highlight"><strong>Приложение не требует регистрации</strong> и не создаёт пользовательских аккаунтов.</div>` },
+        { n: 3, t: "Какие данные мы собираем", html: `
+            <h3>3.1. Данные, которые вы вводите</h3>
+            <ul><li><strong>URL-ссылки</strong> — для загрузки медиа</li><li><strong>Настройки</strong> — язык, тема, папка, качество, буфер обмена</li></ul>
+            <p>Хранятся <strong>локально</strong> (DataStore, Room).</p>
+            <h3>3.2. Данные о загрузках</h3>
+            <p>История загрузок и файлы на устройстве. <strong>Не передаются разработчику.</strong></p>
+            <h3>3.3. Буфер обмена</h3>
+            <p>При включённой опции читается только для обнаружения URL. <strong>Не отправляется на серверы.</strong> Можно отключить в настройках.</p>
+            <h3>3.4. Firebase Analytics</h3>
+            <p>Обезличенные события: платформа, тип медиа (video/audio), размер файла. Без имени, email, геолокации.</p>
+            <h3>3.5. Firebase Firestore</h3>
+            <p>Агрегированные счётчики для «Глобальной статистики». Не привязаны к пользователю.</p>
+            <h3>3.6. Firebase App Check</h3>
+            <p>Защита серверов через Google Play Integrity.</p>` },
+        { n: 4, t: "Какие данные мы НЕ собираем", html: `<ul><li>Имя, email, телефон</li><li>Пароли соцсетей</li><li>Геолокацию</li><li>Контакты и фото</li><li>Содержимое скачанных файлов</li></ul>` },
+        { n: 5, t: "Передача данных третьим лицам", html: `
+            <h3>Google (Firebase)</h3>
+            <p>Аналитика обрабатывается Google LLC. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Политика Google</a></p>
+            <h3>Платформы-источники</h3>
+            <p>Запросы к YouTube, TikTok и др. выполняются от вашего имени. Действуют их политики.</p>
+            <h3>Open-source</h3>
+            <p>yt-dlp (GPLv3) и NewPipeExtractor (GPLv3) на вашем устройстве.</p>` },
+        { n: 6, t: "Разрешения приложения", html: `
+            <table><thead><tr><th>Разрешение</th><th>Зачем</th></tr></thead><tbody>
+            <tr><td>Интернет</td><td>Загрузка и аналитика</td></tr>
+            <tr><td>Уведомления</td><td>Статус загрузок и плеер</td></tr>
+            <tr><td>Фоновая служба</td><td>Загрузки и воспроизведение в фоне</td></tr>
+            <tr><td>Хранилище (Android ≤9)</td><td>Сохранение файлов</td></tr>
+            </tbody></table>
+            <p>На Android 10+ — без постоянного доступа ко всем файлам.</p>` },
+        { n: 7, t: "Хранение и удаление", html: `<ul><li>История и настройки — до удаления вами или приложения</li><li>Файлы — пока не удалите</li><li>Firebase статистика — обезличенная, без привязки к личности</li></ul><p>Вы можете очистить историю, удалить файлы, отключить буфер обмена.</p>` },
+        { n: 8, t: "Безопасность", html: `<p>Используем Firebase App Check и разумные технические меры. Ни один метод передачи данных не является абсолютно безопасным на 100%.</p>` },
+        { n: 9, t: "Дети", html: `<p>Не для лиц младше 13 лет. Мы не собираем данные детей. Свяжитесь с нами, если считаете, что ребёнок передал данные.</p>` },
+        { n: 10, t: "Ваши права", html: `<p>Вы можете запросить информацию, исправление или удаление данных, отозвать согласие — отключив функции или удалив приложение.</p><p>Запросы: <a href="mailto:Sultanov.mbk@gmail.com">Sultanov.mbk@gmail.com</a></p>` },
+        { n: 11, t: "Ответственное использование", html: `<p>Для <strong>личного использования</strong>. Соблюдайте авторские права и условия платформ-источников.</p>` },
+        { n: 12, t: "Изменения политики", html: `<p>Мы можем обновлять Политику. Актуальная версия — по ссылке в описании приложения.</p>` },
+        { n: 13, t: "Контакты", html: `<ul><li>Email: <a href="mailto:Sultanov.mbk@gmail.com">Sultanov.mbk@gmail.com</a></li><li>GitHub: <a href="https://github.com/abbasxan" target="_blank" rel="noopener">abbasxan</a></li><li>Разработчик: abbasxan</li></ul>` }
+    ]
+},
+en: {
+    badge: "📄 Official Privacy Policy",
+    title: "Privacy Policy",
+    subtitle: "Flux Save Downloader — how we handle your data",
+    metaDateLabel: "Effective date",
+    metaDate: "May 31, 2026",
+    metaDevLabel: "Developer",
+    metaDev: "abbasxan",
+    metaContactLabel: "Contact",
+    metaPkgLabel: "App package",
+    chip1: "🔒 No registration",
+    chip2: "📱 Data on device",
+    chip3: "📊 Anonymous analytics",
+    chip4: "🚫 No data selling",
+    footer1: "Flux Save Downloader — free media downloader for Android",
+    footer2: "© 2026 abbasxan · <a href='https://github.com/abbasxan'>GitHub</a>",
+    sections: [
+        { n: 1, t: "General", html: `<p>This Policy describes what data <strong>Flux Save Downloader</strong> processes, why, and your rights.</p><p>By using the app, you agree to this Policy. If not, please do not use the app.</p>` },
+        { n: 2, t: "About the app", html: `<p>Flux Save Downloader downloads media from YouTube, TikTok, Instagram, Pinterest, and Facebook. Save videos and audio, manage downloads, and play files.</p><div class="highlight"><strong>No registration required.</strong> No user accounts are created.</div>` },
+        { n: 3, t: "Data we collect", html: `
+            <h3>3.1. Data you provide</h3>
+            <ul><li><strong>URLs</strong> — to download media</li><li><strong>Settings</strong> — language, theme, folder, quality, clipboard</li></ul>
+            <p>Stored <strong>locally</strong> (DataStore, Room).</p>
+            <h3>3.2. Download data</h3>
+            <p>History and files on device. <strong>Not sent to the developer.</strong></p>
+            <h3>3.3. Clipboard</h3>
+            <p>Read only to detect supported URLs when enabled. <strong>Not sent to servers.</strong> Can be disabled in Settings.</p>
+            <h3>3.4. Firebase Analytics</h3>
+            <p>Anonymous events: platform, media type, file size. No name, email, or location.</p>
+            <h3>3.5. Firebase Firestore</h3>
+            <p>Aggregated counters for Global Stats. Not linked to users.</p>
+            <h3>3.6. Firebase App Check</h3>
+            <p>Server protection via Google Play Integrity.</p>` },
+        { n: 4, t: "Data we do NOT collect", html: `<ul><li>Name, email, phone</li><li>Social media passwords</li><li>Location</li><li>Contacts and photos</li><li>Downloaded file contents</li></ul>` },
+        { n: 5, t: "Third parties", html: `
+            <h3>Google (Firebase)</h3>
+            <p>Analytics processed by Google LLC. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></p>
+            <h3>Source platforms</h3>
+            <p>Requests to YouTube, TikTok, etc. on your behalf. Their policies apply.</p>
+            <h3>Open-source</h3>
+            <p>yt-dlp (GPLv3) and NewPipeExtractor (GPLv3) on your device.</p>` },
+        { n: 6, t: "App permissions", html: `
+            <table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td>Internet</td><td>Downloads and analytics</td></tr>
+            <tr><td>Notifications</td><td>Download status and player</td></tr>
+            <tr><td>Background service</td><td>Background downloads and playback</td></tr>
+            <tr><td>Storage (Android ≤9)</td><td>Saving files</td></tr>
+            </tbody></table>
+            <p>On Android 10+ — no permanent access to all files.</p>` },
+        { n: 7, t: "Retention & deletion", html: `<ul><li>History and settings — until you delete them or the app</li><li>Files — until you remove them</li><li>Firebase stats — anonymous, not user-linked</li></ul><p>You can clear history, delete files, disable clipboard detection.</p>` },
+        { n: 8, t: "Security", html: `<p>We use Firebase App Check and reasonable measures. No method of transmission is 100% secure.</p>` },
+        { n: 9, t: "Children", html: `<p>Not for users under 13. We do not knowingly collect children's data. Contact us if you believe a child provided data.</p>` },
+        { n: 10, t: "Your rights", html: `<p>You may request information, correction, or deletion, or withdraw consent by disabling features or uninstalling.</p><p>Requests: <a href="mailto:Sultanov.mbk@gmail.com">Sultanov.mbk@gmail.com</a></p>` },
+        { n: 11, t: "Responsible use", html: `<p>For <strong>personal use</strong> only. Respect copyright and platform terms of service.</p>` },
+        { n: 12, t: "Policy changes", html: `<p>We may update this Policy. The current version is linked in the app description.</p>` },
+        { n: 13, t: "Contact", html: `<ul><li>Email: <a href="mailto:Sultanov.mbk@gmail.com">Sultanov.mbk@gmail.com</a></li><li>GitHub: <a href="https://github.com/abbasxan" target="_blank" rel="noopener">abbasxan</a></li><li>Developer: abbasxan</li></ul>` }
+    ]
+},
+az: {
+    badge: "📄 Rəsmi Məxfilik Siyasəti",
+    title: "Məxfilik Siyasəti",
+    subtitle: "Flux Save Downloader — məlumatlarınızı necə emal edirik",
+    metaDateLabel: "Qüvvəyə minmə tarixi",
+    metaDate: "31 may 2026",
+    metaDevLabel: "Developer",
+    metaDev: "abbasxan",
+    metaContactLabel: "Əlaqə",
+    metaPkgLabel: "Tətbiq paketi",
+    chip1: "🔒 Qeydiyyatsız",
+    chip2: "📱 Məlumat cihazda",
+    chip3: "📊 Anonim analitika",
+    chip4: "🚫 Məlumat satılmır",
+    footer1: "Flux Save Downloader — Android üçün pulsuz media yükləyici",
+    footer2: "© 2026 abbasxan · <a href='https://github.com/abbasxan'>GitHub</a>",
+    sections: [
+        { n: 1, t: "Ümumi müddəalar", html: `<p>Bu Siyasət <strong>Flux Save Downloader</strong> tətbiqinin hansı məlumatları emal etdiyini, hansı məqsədlə və istifadəçinin hüquqlarını izah edir.</p><p>Tətbiqdən istifadə etməklə bu Siyasətlə razılaşırsınız.</p>` },
+        { n: 2, t: "Tətbiq haqqında", html: `<p>Flux Save Downloader YouTube, TikTok, Instagram, Pinterest və Facebook-dan media yükləyir.</p><div class="highlight"><strong>Qeydiyyat tələb olunmur.</strong> İstifadəçi hesabları yaradılmır.</div>` },
+        { n: 3, t: "Topladığımız məlumatlar", html: `
+            <h3>3.1. Sizin daxil etdiyiniz</h3>
+            <ul><li><strong>URL-lər</strong> — media yükləmək üçün</li><li><strong>Parametrlər</strong> — dil, tema, qovluq, keyfiyyət</li></ul>
+            <p><strong>Lokal olaraq</strong> saxlanılır (DataStore, Room).</p>
+            <h3>3.2. Yükləmə məlumatları</h3>
+            <p>Tarixçə və fayllar cihazda. <strong>Developerə göndərilmir.</strong></p>
+            <h3>3.3. Bufer</h3>
+            <p>Yalnız URL aşkarlamaq üçün oxunur. <strong>Serverə göndərilmir.</strong></p>
+            <h3>3.4. Firebase Analytics</h3>
+            <p>Anonim hadisələr: platforma, media növü, fayl ölçüsü.</p>
+            <h3>3.5. Firebase Firestore</h3>
+            <p>Ümumi statistika üçün aqreqat sayğaclar.</p>
+            <h3>3.6. Firebase App Check</h3>
+            <p>Google Play Integrity ilə qoruma.</p>` },
+        { n: 4, t: "Toplamadığımız məlumatlar", html: `<ul><li>Ad, email, telefon</li><li>Sosial şəbəkə parolları</li><li>Geolokasiya</li><li>Kontaktlar və foto</li><li>Yüklənmiş fayl məzmunu</li></ul>` },
+        { n: 5, t: "Üçüncü tərəflər", html: `
+            <h3>Google (Firebase)</h3>
+            <p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Məxfilik Siyasəti</a></p>
+            <h3>Mənbə platformalar</h3>
+            <p>YouTube, TikTok və s. — sizin adınıza sorğular.</p>
+            <h3>Açıq mənbə</h3>
+            <p>yt-dlp (GPLv3) və NewPipeExtractor (GPLv3).</p>` },
+        { n: 6, t: "Tətbiq icazələri", html: `
+            <table><thead><tr><th>İcazə</th><th>Məqsəd</th></tr></thead><tbody>
+            <tr><td>İnternet</td><td>Yükləmə və analitika</td></tr>
+            <tr><td>Bildirişlər</td><td>Yükləmə statusu</td></tr>
+            <tr><td>Fon xidməti</td><td>Fon yükləmələri</td></tr>
+            <tr><td>Yaddaş (Android ≤9)</td><td>Fayl saxlama</td></tr>
+            </tbody></table>` },
+        { n: 7, t: "Saxlama və silmə", html: `<p>Tarixçə və parametrlər silinənə qədər cihazda qalır. Faylları siz silirsiniz.</p>` },
+        { n: 8, t: "Təhlükəsizlik", html: `<p>Firebase App Check və texniki tədbirlər tətbiq olunur.</p>` },
+        { n: 9, t: "Uşaqlar", html: `<p>13 yaşdan kiçiklər üçün nəzərdə tutulmayıb.</p>` },
+        { n: 10, t: "Hüquqlarınız", html: `<p>Məlumat, düzəliş və ya silmə tələb edə bilərsiniz.</p><p><a href="mailto:Sultanov.mbk@gmail.com">Sultanov.mbk@gmail.com</a></p>` },
+        { n: 11, t: "Məsuliyyətli istifadə", html: `<p><strong>Şəxsi istifadə</strong> üçün. Müəllif hüquqlarına riayət edin.</p>` },
+        { n: 12, t: "Dəyişikliklər", html: `<p>Siyasəti yeniləyə bilərik. Aktual versiya tətbiq təsvirindədir.</p>` },
+        { n: 13, t: "Əlaqə", html: `<ul><li>Email: <a href="mailto:Sultanov.mbk@gmail.com">Sultanov.mbk@gmail.com</a></li><li>GitHub: <a href="https://github.com/abbasxan" target="_blank" rel="noopener">abbasxan</a></li></ul>` }
+    ]
+}
+};
 
+function setLang(lang, btn) {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.documentElement.lang = lang === 'az' ? 'az' : lang;
+
+    const d = T[lang];
+    document.getElementById('badge').textContent = d.badge;
+    document.getElementById('title').textContent = d.title;
+    document.getElementById('subtitle').textContent = d.subtitle;
+    document.getElementById('metaDateLabel').textContent = d.metaDateLabel;
+    document.getElementById('metaDate').textContent = d.metaDate;
+    document.getElementById('metaDevLabel').textContent = d.metaDevLabel;
+    document.getElementById('metaDev').textContent = d.metaDev;
+    document.getElementById('metaContactLabel').textContent = d.metaContactLabel;
+    document.getElementById('metaPkgLabel').textContent = d.metaPkgLabel;
+    document.getElementById('chip1').textContent = d.chip1;
+    document.getElementById('chip2').textContent = d.chip2;
+    document.getElementById('chip3').textContent = d.chip3;
+    document.getElementById('chip4').textContent = d.chip4;
+    document.getElementById('footer1').textContent = d.footer1;
+    document.getElementById('footer2').innerHTML = d.footer2;
+
+    document.getElementById('sections').innerHTML = d.sections.map(s => `
+        <div class="section">
+            <h2><span class="section-num">${s.n}</span> ${s.t}</h2>
+            ${s.html}
+        </div>
+    `).join('');
+}
+
+setLang('ru', document.querySelector('.lang-btn.active'));
+</script>
 </body>
 </html>
